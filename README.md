@@ -16,7 +16,7 @@ VLMEvalKit CountBenchQA final-answer substring scoring: `ans in pred`, where `pr
 | AWQ 4-bit | nothink | 3 | 439.67/487 (three-run mean) | **90.28%** | 2.10 | 2 | 3 |
 | Unquantized 16-bit (BF16) | think | 1 | 468/487 | **96.10%** | 923.02 | 313 | 39,865 |
 | Unquantized 16-bit (BF16) | nothink | 3 | 444.67/487 (three-run mean) | **91.31%** | 2.12 | 2 | 3 |
-| BF16 (Ascend Native FSDP2 + EP=2) | nothink | 3 | 444/487 (three-run mean) | **91.17%** | — | — | — |
+| Unquantized 16-bit (BF16; Ascend Native FSDP2 + EP=2) | nothink | 3 | 444/487 (three-run mean) | **91.17%** | — | — | — |
 
 Each nothink run is scored independently before taking the arithmetic mean. Because every run contains 487 samples, this equals the pooled accuracy over 1,461 predictions: AWQ 1,319/1,461 and BF16 1,334/1,461. **No majority voting, per-sample best selection, or best-of-N is used.** See [`results/summary/run_level_summary.csv`](results/summary/run_level_summary.csv) for individual runs.
 
