@@ -6,11 +6,13 @@ This repository does not redistribute the revised TSV. Download it with:
 bash data/download.sh
 ```
 
-Primary URL:
+Primary URL: [Download CountBenchQA.tsv](https://opencompass.openxlab.space/utils/VLMEval/CountBenchQA.tsv).
 
-```text
-https://opencompass.openxlab.space/utils/VLMEval/CountBenchQA.tsv
-```
+Source references:
+
+- [OpenCompass VLMEvalKit](https://github.com/open-compass/VLMEvalKit)
+- [CountBenchQA on Hugging Face](https://huggingface.co/datasets/vikhyatk/CountBenchQA)
+- [Original CountBench images on Hugging Face](https://huggingface.co/datasets/nielsr/countbench)
 
 Expected properties:
 

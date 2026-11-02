@@ -19,6 +19,13 @@ Each nothink run is scored independently before taking the arithmetic mean. Beca
 
 Output tokens include reasoning and final answers. They measure generated work, not cross-hardware speed. Final nothink medians, percentiles, and maxima are computed over the three runs' pooled outputs.
 
+## Dataset download and source
+
+- **Exact revised TSV used in these experiments:** [Download CountBenchQA.tsv](https://opencompass.openxlab.space/utils/VLMEval/CountBenchQA.tsv) — 487 samples, MD5 `fc73c8d4ffa665431448753f094d56ff`.
+- **Evaluation source:** [OpenCompass VLMEvalKit](https://github.com/open-compass/VLMEvalKit).
+- **Upstream dataset page:** [CountBenchQA on Hugging Face](https://huggingface.co/datasets/vikhyatk/CountBenchQA).
+- Local instructions and checksum verification: [`data/README.md`](data/README.md).
+
 ## Shared protocol
 
 - Revised CountBenchQA, 487 samples, MD5 `fc73c8d4ffa665431448753f094d56ff`; original TSV base64 image bytes without manual resize, compression, or crop.

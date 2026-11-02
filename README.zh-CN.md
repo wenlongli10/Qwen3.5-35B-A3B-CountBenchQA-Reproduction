@@ -19,6 +19,13 @@ nothink 的三轮准确率分别独立计算后再等权平均；每轮均为 48
 
 输出 token 包含思考和最终答案，是生成工作量与推理链长度指标，不是跨硬件速度指标。nothink 最终表的中位数、分位数和最大值基于三轮合并输出计算。
 
+## 数据集下载与来源
+
+- **本实验实际使用的修订版 TSV：**[直接下载 CountBenchQA.tsv](https://opencompass.openxlab.space/utils/VLMEval/CountBenchQA.tsv)，共 487 条，MD5 为 `fc73c8d4ffa665431448753f094d56ff`。
+- **评测来源框架：**[OpenCompass VLMEvalKit](https://github.com/open-compass/VLMEvalKit)。
+- **上游数据集页面：**[Hugging Face CountBenchQA](https://huggingface.co/datasets/vikhyatk/CountBenchQA)。
+- 本地下载与校验说明：[`data/README.md`](data/README.md)。
+
 ## 共同协议
 
 - 数据：487 条修订版 CountBenchQA，MD5 `fc73c8d4ffa665431448753f094d56ff`；图像使用 TSV 原始 base64 字节，不手工缩放、压缩或裁剪。
