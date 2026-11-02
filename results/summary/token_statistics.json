@@ -1,0 +1,162 @@
+{
+  "run_level": [
+    {
+      "configuration": "AWQ think",
+      "run": "single",
+      "total": 487,
+      "mean_output_tokens": 952.0554414784394,
+      "median_output_tokens": 341.0,
+      "p95_output_tokens": 3376.4999999999964,
+      "p99_output_tokens": 13064.37999999999,
+      "min_output_tokens": 5,
+      "max_output_tokens": 30627,
+      "total_output_tokens": 463651,
+      "complete_raw_outputs": 487
+    },
+    {
+      "configuration": "AWQ nothink",
+      "run": "original",
+      "total": 487,
+      "mean_output_tokens": 2.090349075975359,
+      "median_output_tokens": 2.0,
+      "p95_output_tokens": 3.0,
+      "p99_output_tokens": 3.0,
+      "min_output_tokens": 2,
+      "max_output_tokens": 3,
+      "total_output_tokens": 1018,
+      "complete_raw_outputs": 487
+    },
+    {
+      "configuration": "AWQ nothink",
+      "run": "seed_1",
+      "total": 487,
+      "mean_output_tokens": 2.1006160164271046,
+      "median_output_tokens": 2.0,
+      "p95_output_tokens": 3.0,
+      "p99_output_tokens": 3.0,
+      "min_output_tokens": 2,
+      "max_output_tokens": 3,
+      "total_output_tokens": 1023,
+      "complete_raw_outputs": 487
+    },
+    {
+      "configuration": "AWQ nothink",
+      "run": "seed_2",
+      "total": 487,
+      "mean_output_tokens": 2.0985626283367558,
+      "median_output_tokens": 2.0,
+      "p95_output_tokens": 3.0,
+      "p99_output_tokens": 3.0,
+      "min_output_tokens": 2,
+      "max_output_tokens": 3,
+      "total_output_tokens": 1022,
+      "complete_raw_outputs": 487
+    },
+    {
+      "configuration": "BF16 think",
+      "run": "single",
+      "total": 487,
+      "mean_output_tokens": 923.0246406570842,
+      "median_output_tokens": 313.0,
+      "p95_output_tokens": 2659.899999999999,
+      "p99_output_tokens": 14631.38,
+      "min_output_tokens": 107,
+      "max_output_tokens": 39865,
+      "total_output_tokens": 449513,
+      "complete_raw_outputs": 487
+    },
+    {
+      "configuration": "BF16 nothink",
+      "run": "seed_0",
+      "total": 487,
+      "mean_output_tokens": 2.1293634496919918,
+      "median_output_tokens": 2.0,
+      "p95_output_tokens": 3.0,
+      "p99_output_tokens": 3.0,
+      "min_output_tokens": 2,
+      "max_output_tokens": 3,
+      "total_output_tokens": 1037,
+      "complete_raw_outputs": 487
+    },
+    {
+      "configuration": "BF16 nothink",
+      "run": "seed_1",
+      "total": 487,
+      "mean_output_tokens": 2.1232032854209444,
+      "median_output_tokens": 2.0,
+      "p95_output_tokens": 3.0,
+      "p99_output_tokens": 3.0,
+      "min_output_tokens": 2,
+      "max_output_tokens": 3,
+      "total_output_tokens": 1034,
+      "complete_raw_outputs": 487
+    },
+    {
+      "configuration": "BF16 nothink",
+      "run": "seed_2",
+      "total": 487,
+      "mean_output_tokens": 2.102669404517454,
+      "median_output_tokens": 2.0,
+      "p95_output_tokens": 3.0,
+      "p99_output_tokens": 3.0,
+      "min_output_tokens": 2,
+      "max_output_tokens": 3,
+      "total_output_tokens": 1024,
+      "complete_raw_outputs": 487
+    }
+  ],
+  "final_configurations": [
+    {
+      "configuration": "AWQ think",
+      "runs": 1,
+      "aggregation": "single_run",
+      "mean_output_tokens": 952.0554414784394,
+      "median_output_tokens": 341.0,
+      "p95_output_tokens": 3376.4999999999964,
+      "p99_output_tokens": 13064.37999999999,
+      "min_output_tokens": 5,
+      "max_output_tokens": 30627,
+      "pooled_output_tokens": 463651,
+      "complete_raw_outputs": 487
+    },
+    {
+      "configuration": "AWQ nothink",
+      "runs": 3,
+      "aggregation": "arithmetic_mean_of_three_independent_runs",
+      "mean_output_tokens": 2.0965092402464065,
+      "median_output_tokens": 2.0,
+      "p95_output_tokens": 3.0,
+      "p99_output_tokens": 3.0,
+      "min_output_tokens": 2,
+      "max_output_tokens": 3,
+      "pooled_output_tokens": 3063,
+      "complete_raw_outputs": 1461
+    },
+    {
+      "configuration": "BF16 think",
+      "runs": 1,
+      "aggregation": "single_run",
+      "mean_output_tokens": 923.0246406570842,
+      "median_output_tokens": 313.0,
+      "p95_output_tokens": 2659.899999999999,
+      "p99_output_tokens": 14631.38,
+      "min_output_tokens": 107,
+      "max_output_tokens": 39865,
+      "pooled_output_tokens": 449513,
+      "complete_raw_outputs": 487
+    },
+    {
+      "configuration": "BF16 nothink",
+      "runs": 3,
+      "aggregation": "arithmetic_mean_of_three_independent_runs",
+      "mean_output_tokens": 2.118412046543463,
+      "median_output_tokens": 2.0,
+      "p95_output_tokens": 3.0,
+      "p99_output_tokens": 3.0,
+      "min_output_tokens": 2,
+      "max_output_tokens": 3,
+      "pooled_output_tokens": 3095,
+      "complete_raw_outputs": 1461
+    }
+  ]
+}

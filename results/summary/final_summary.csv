@@ -1,0 +1,5 @@
+configuration,model,mode,runs,aggregation,mean_correct_per_run,samples_per_run,accuracy,mean_output_tokens,median_output_tokens,p95_output_tokens,p99_output_tokens,min_output_tokens,max_output_tokens,pooled_predictions,pooled_correct,pooled_output_tokens,complete_raw_outputs
+AWQ think,AWQ,think,1,single_run,472.0,487,0.9691991786447639,952.0554414784394,341.0,3376.4999999999964,13064.37999999999,5,30627,487,472,463651,487
+AWQ nothink,AWQ,nothink,3,arithmetic_mean_of_three_independent_runs,439.6666666666667,487,0.9028062970568104,2.0965092402464065,2.0,3.0,3.0,2,3,1461,1319,3063,1461
+BF16 think,BF16,think,1,single_run,468.0,487,0.9609856262833676,923.0246406570842,313.0,2659.899999999999,14631.38,107,39865,487,468,449513,487
+BF16 nothink,BF16,nothink,3,arithmetic_mean_of_three_independent_runs,444.6666666666667,487,0.9130732375085557,2.118412046543463,2.0,3.0,3.0,2,3,1461,1334,3095,1461

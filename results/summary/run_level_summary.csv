@@ -1,0 +1,9 @@
+configuration,model,mode,run,seed,file,correct,total,accuracy,mean_output_tokens,median_output_tokens,p95_output_tokens,p99_output_tokens,min_output_tokens,max_output_tokens,total_output_tokens,length_finished,complete_raw_outputs
+AWQ think,AWQ,think,single,,awq_think.jsonl,472,487,0.9691991786447639,952.0554414784394,341.0,3376.4999999999964,13064.37999999999,5,30627,463651,0,487
+AWQ nothink,AWQ,nothink,original,,awq_nothink.jsonl,438,487,0.8993839835728953,2.090349075975359,2.0,3.0,3.0,2,3,1018,0,487
+AWQ nothink,AWQ,nothink,seed_1,1,awq_nothink_seed1.jsonl,438,487,0.8993839835728953,2.1006160164271046,2.0,3.0,3.0,2,3,1023,0,487
+AWQ nothink,AWQ,nothink,seed_2,2,awq_nothink_seed2.jsonl,443,487,0.9096509240246407,2.0985626283367558,2.0,3.0,3.0,2,3,1022,0,487
+BF16 think,BF16,think,single,0,bf16_think.jsonl,468,487,0.9609856262833676,923.0246406570842,313.0,2659.899999999999,14631.38,107,39865,449513,0,487
+BF16 nothink,BF16,nothink,seed_0,0,bf16_nothink.jsonl,449,487,0.9219712525667351,2.1293634496919918,2.0,3.0,3.0,2,3,1037,0,487
+BF16 nothink,BF16,nothink,seed_1,1,bf16_nothink_seed1.jsonl,435,487,0.893223819301848,2.1232032854209444,2.0,3.0,3.0,2,3,1034,0,487
+BF16 nothink,BF16,nothink,seed_2,2,bf16_nothink_seed2.jsonl,450,487,0.9240246406570842,2.102669404517454,2.0,3.0,3.0,2,3,1024,0,487

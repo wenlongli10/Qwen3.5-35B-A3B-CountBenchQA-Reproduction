@@ -1,0 +1,7 @@
+# Archived AWQ reference versions.
+# Use a vLLM/PyTorch combination compatible with your CUDA driver and GPU.
+vllm==0.32.0
+torch==2.13.0+cu130
+transformers==5.19.0
+pynvml
+pillow

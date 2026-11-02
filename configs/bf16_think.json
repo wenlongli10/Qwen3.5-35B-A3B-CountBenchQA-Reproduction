@@ -1,0 +1,56 @@
+{
+  "dataset": {
+    "name": "CountBenchQA revised TSV",
+    "samples": 487,
+    "md5": "fc73c8d4ffa665431448753f094d56ff",
+    "path": "data/CountBenchQA.tsv"
+  },
+  "prompt_template": "{question} Note that: answer with a number directly e.g. 3. Do not include any additional text.",
+  "image_input": "Original TSV base64 image bytes; no manual resizing, compression, cropping, system message, few-shot examples, or answer metadata.",
+  "evaluation": "VLMEvalKit CountBenchQA final-answer substring: str(answer) in answer_text",
+  "raw_output": "Complete original output archived for every sample",
+  "model": {
+    "name": "Qwen/Qwen3.5-35B-A3B",
+    "architecture": "Qwen3_5MoeForConditionalGeneration",
+    "dtype": "bfloat16",
+    "revision": "59d61f3ce65a6d9863b86d2e96597125219dc754"
+  },
+  "mode": "think",
+  "software": {
+    "PyTorch": "2.10.0+cu128",
+    "Transformers": "5.22.1",
+    "torchvision": "0.25.0+cu128"
+  },
+  "serving": {
+    "engine": "Hugging Face Transformers",
+    "device_map": "auto",
+    "max_memory": {
+      "0": "82GiB"
+    },
+    "attn_implementation": "sdpa"
+  },
+  "generation": {
+    "do_sample": true,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 0.0,
+    "seed": 0,
+    "seed_scope": "torch.manual_seed(0) reset per sample",
+    "workers": 1,
+    "max_new_tokens": 65536,
+    "enable_thinking": true,
+    "archived_per_record_max_new_tokens": [
+      32768,
+      65536
+    ]
+  },
+  "code": "scripts/run_countbench.py",
+  "runs": [
+    {
+      "run": "single",
+      "result_file": "results/final/bf16_think.jsonl"
+    }
+  ]
+}

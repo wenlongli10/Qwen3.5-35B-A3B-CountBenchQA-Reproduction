@@ -1,0 +1,28 @@
+# Credentials and local settings
+.env
+*.pem
+*.key
+*ssh*
+
+# Downloaded data and model weights
+data/*.tsv
+models/
+*.safetensors
+*.gguf
+
+# New experiment outputs
+outputs/
+logs/
+*.log
+
+# Generated images and caches
+images/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,9 @@
+# Archived BF16 reference versions.
+# CUDA-specific torch/torchvision wheels require an appropriate wheel index.
+torch==2.10.0+cu128
+torchvision==0.25.0+cu128
+transformers==5.22.1
+accelerate
+qwen-vl-utils
+pillow
+av

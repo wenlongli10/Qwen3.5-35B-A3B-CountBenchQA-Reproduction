@@ -1,0 +1,54 @@
+{
+  "dataset": {
+    "name": "CountBenchQA revised TSV",
+    "samples": 487,
+    "md5": "fc73c8d4ffa665431448753f094d56ff",
+    "path": "data/CountBenchQA.tsv"
+  },
+  "prompt_template": "{question} Note that: answer with a number directly e.g. 3. Do not include any additional text.",
+  "image_input": "Original TSV base64 image bytes; no manual resizing, compression, cropping, system message, few-shot examples, or answer metadata.",
+  "evaluation": "VLMEvalKit CountBenchQA final-answer substring: str(answer) in answer_text",
+  "raw_output": "Complete original output archived for every sample",
+  "model": {
+    "name": "QuantTrio/Qwen3.5-35B-A3B-AWQ",
+    "served_name": "qwen3.5-35b-a3b-awq",
+    "architecture": "Qwen3_5MoeForConditionalGeneration",
+    "quantization": "AWQ 4-bit, group_size=128, version=gemm, zero_point=true",
+    "dtype": "float16"
+  },
+  "mode": "think",
+  "software": {
+    "vLLM": "0.32.0",
+    "PyTorch": "2.13.0+cu130",
+    "Transformers": "5.19.0"
+  },
+  "serving": {
+    "tensor_parallel_size": 1,
+    "reasoning_parser": null,
+    "max_num_seqs": 4,
+    "max_model_len": 65536,
+    "gpu_memory_utilization": 0.92,
+    "VLLM_USE_FLASHINFER_SAMPLER": 0
+  },
+  "generation": {
+    "do_sample": true,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 1.5,
+    "seed": null,
+    "seed_scope": "not fixed; seed omitted from requests",
+    "workers": 4,
+    "max_tokens": 32768,
+    "enable_thinking": true
+  },
+  "code": "scripts/run_countbench.py",
+  "runs": [
+    {
+      "run": "single",
+      "result_file": "results/final/awq_think.jsonl"
+    }
+  ]
+}

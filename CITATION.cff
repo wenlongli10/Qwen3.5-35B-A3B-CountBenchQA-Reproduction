@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this reproduction bundle, please cite it and the upstream model, dataset, and VLMEvalKit projects."
+title: "Qwen3.5-35B-A3B CountBenchQA Reproduction"
+type: software
+authors:
+  - name: "Qwen3.5 CountBenchQA Reproduction contributors"
+version: 1.0.0
+date-released: 2026-11-03
+license: MIT
+keywords:
+  - Qwen3.5
+  - CountBenchQA
+  - VLMEvalKit
+  - vision-language-model
+  - AWQ
+  - BF16
+  - reproducibility
