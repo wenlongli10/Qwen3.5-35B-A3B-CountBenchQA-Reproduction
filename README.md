@@ -1,5 +1,7 @@
 # Qwen3.5-35B-A3B CountBenchQA Reproduction
 
+> **Evaluation protocol:** All reported scores use the **OpenCompass VLMEvalKit CountBenchQA protocol**: the revised 487-sample TSV, question-only prompts plus the fixed suffix, and final-answer substring scoring (`ans in pred`). Results from other evaluation frameworks or prompt protocols are not directly comparable.
+
 [中文](README.zh-CN.md) · [Protocol](docs/EXPERIMENT_PROTOCOL.md) · [Evaluation](docs/EVALUATION.md) · [Detailed results](docs/RESULTS.md) · [Reproduce](docs/REPRODUCE.md)
 
 Final **Qwen3.5-35B-A3B** experiments on revised **CountBenchQA**: **AWQ 4-bit / unquantized 16-bit (BF16)** × **think / nothink**. Each model has one complete think run and three independent nothink runs; the headline nothink results are three-run averages. All eight runs provide complete raw outputs, separate final answers, token statistics, and unified scores for 487 samples.

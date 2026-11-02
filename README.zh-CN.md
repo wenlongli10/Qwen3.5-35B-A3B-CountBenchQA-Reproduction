@@ -1,5 +1,7 @@
 # Qwen3.5-35B-A3B CountBenchQA 复现实验
 
+> **评测协议：**本文所有准确率均基于 **OpenCompass VLMEvalKit 的 CountBenchQA 评测协议**：修订版 487 条 TSV、仅使用 question 加固定后缀的 prompt，以及最终答案子串规则（`ans in pred`）。不同评测框架或 prompt 协议下的结果不能直接比较。
+
 [English](README.md) · [实验协议](docs/EXPERIMENT_PROTOCOL.md) · [评分规则](docs/EVALUATION.md) · [详细结果](docs/RESULTS.md) · [复现步骤](docs/REPRODUCE.md)
 
 本仓库记录 **Qwen3.5-35B-A3B** 在修订版 **CountBenchQA** 上的最终实验：**AWQ 4-bit／非量化 16-bit（BF16）** × **think／nothink**。think 下每种模型进行一次完整推理；nothink 下每种模型进行三次独立推理并报告三轮平均值。八轮实验均包含 487 个样本的完整原始输出、独立最终答案、token 统计和统一评分。
