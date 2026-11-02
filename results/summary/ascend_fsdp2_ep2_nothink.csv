@@ -1,0 +1,5 @@
+backend,hardware,model,precision,mode,dataset,samples,run,seed,correct,accuracy_percent
+"MindSpeed-MM Native FSDP2 + EP=2","2 x Ascend 64 GB NPU",Qwen3.5-35B-A3B,BF16,nothink,"CountBenchQA revised",487,independent,0,446,91.58
+"MindSpeed-MM Native FSDP2 + EP=2","2 x Ascend 64 GB NPU",Qwen3.5-35B-A3B,BF16,nothink,"CountBenchQA revised",487,independent,42,458,94.05
+"MindSpeed-MM Native FSDP2 + EP=2","2 x Ascend 64 GB NPU",Qwen3.5-35B-A3B,BF16,nothink,"CountBenchQA revised",487,independent,12345,428,87.89
+"MindSpeed-MM Native FSDP2 + EP=2","2 x Ascend 64 GB NPU",Qwen3.5-35B-A3B,BF16,nothink,"CountBenchQA revised",1461,three-run-mean,,1332,91.17

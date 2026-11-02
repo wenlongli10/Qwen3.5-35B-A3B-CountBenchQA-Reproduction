@@ -17,6 +17,10 @@
 
 nothink 的三轮准确率分别独立计算后再等权平均；每轮均为 487 条，因此也等于合并 1,461 条预测后的准确率：AWQ 为 1,319/1,461，BF16 为 1,334/1,461。**没有多数投票、每题取优或 best-of-N。**逐轮结果见 [`results/summary/run_level_summary.csv`](results/summary/run_level_summary.csv)。
 
+### 昇腾卡验证结果
+
+使用相同的修订版 487 条数据、prompt、采样参数和 `ans in pred` 最终答案评分规则，在 **2 张 64 GB 昇腾 NPU** 上以 **MindSpeed-MM Native FSDP2 + EP=2**、BF16、关闭 thinking 进行三轮独立评测。三轮分别为 446/487（91.58%）、458/487（94.05%）和 428/487（87.89%），三轮平均为 **91.17%（1,332/1,461）**。逐轮数据见 [`results/summary/ascend_fsdp2_ep2_nothink.csv`](results/summary/ascend_fsdp2_ep2_nothink.csv)。这是跨后端验证结果，与 NVIDIA Transformers 结果分开报告，不并入上面的四个最终配置。
+
 输出 token 包含思考和最终答案，是生成工作量与推理链长度指标，不是跨硬件速度指标。nothink 最终表的中位数、分位数和最大值基于三轮合并输出计算。
 
 ## 数据集下载与来源

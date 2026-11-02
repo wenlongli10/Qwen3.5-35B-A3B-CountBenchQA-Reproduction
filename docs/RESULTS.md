@@ -15,6 +15,19 @@ Think values are from one run. Nothink accuracy and mean token count are arithme
 
 The nothink mean accuracies equal pooled accuracies because all runs have equal size: AWQ 1,319/1,461 and BF16 1,334/1,461.
 
+## Ascend validation
+
+The following independent validation uses the same revised dataset, prompt, sampling parameters, and VLMEvalKit-compatible substring score as the NVIDIA runs. The backend is MindSpeed-MM Native FSDP2 with expert parallelism (`EP=2`) on two 64 GB Ascend NPUs. Thinking is disabled.
+
+| Backend | Seed | Correct / samples | Accuracy |
+|---|---:|---:|---:|
+| Native FSDP2 + EP=2, BF16 | 0 | 446/487 | 91.58% |
+| Native FSDP2 + EP=2, BF16 | 42 | 458/487 | 94.05% |
+| Native FSDP2 + EP=2, BF16 | 12345 | 428/487 | 87.89% |
+| **Three-run mean** | — | **1,332/1,461** | **91.17%** |
+
+These runs validate the model/data/evaluation integration on Ascend. They remain a separate backend result because the NVIDIA reference uses Transformers on NVIDIA hardware and the Ascend runs use MindSpeed-MM Native FSDP2 and EP=2. The machine-readable run table is [`results/summary/ascend_fsdp2_ep2_nothink.csv`](../results/summary/ascend_fsdp2_ep2_nothink.csv).
+
 ## Independent runs
 
 | Configuration | Run | Seed | Correct | Accuracy | Mean | Median | Max | Total tokens |

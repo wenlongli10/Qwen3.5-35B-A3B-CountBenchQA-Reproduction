@@ -17,6 +17,10 @@ VLMEvalKit CountBenchQA final-answer substring scoring: `ans in pred`, where `pr
 
 Each nothink run is scored independently before taking the arithmetic mean. Because every run contains 487 samples, this equals the pooled accuracy over 1,461 predictions: AWQ 1,319/1,461 and BF16 1,334/1,461. **No majority voting, per-sample best selection, or best-of-N is used.** See [`results/summary/run_level_summary.csv`](results/summary/run_level_summary.csv) for individual runs.
 
+### Ascend validation
+
+The same revised 487-sample dataset, prompt, sampling settings, and `ans in pred` final-answer rule were also evaluated on **2 x Ascend 64 GB NPU** with **MindSpeed-MM Native FSDP2 + EP=2**, BF16, and thinking disabled. Three independent runs produced 446/487 (91.58%), 458/487 (94.05%), and 428/487 (87.89%), for a three-run mean of **91.17% (1,332/1,461)**. The run-level data is available in [`results/summary/ascend_fsdp2_ep2_nothink.csv`](results/summary/ascend_fsdp2_ep2_nothink.csv). This is a cross-backend validation result; it is reported separately from the NVIDIA Transformers result rather than being merged into the four headline configurations.
+
 Output tokens include reasoning and final answers. They measure generated work, not cross-hardware speed. Final nothink medians, percentiles, and maxima are computed over the three runs' pooled outputs.
 
 ## Dataset download and source
