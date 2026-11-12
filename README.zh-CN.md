@@ -1,14 +1,12 @@
 # Qwen3.5-35B-A3B CountBenchQA 复现实验
 
-> **评测协议：**本文所有准确率均基于 **OpenCompass VLMEvalKit 的 CountBenchQA 评测协议**：修订版 487 条 TSV、仅使用 question 加固定后缀的 prompt，以及最终答案子串规则（`ans in pred`）。不同评测框架或 prompt 协议下的结果不能直接比较。
-
 [English](README.md) · [实验协议](docs/EXPERIMENT_PROTOCOL.md) · [评分规则](docs/EVALUATION.md) · [详细结果](docs/RESULTS.md) · [复现步骤](docs/REPRODUCE.md)
 
 本仓库记录 **Qwen3.5-35B-A3B** 在修订版 **CountBenchQA** 上的最终实验：**AWQ 4-bit／非量化 16-bit（BF16）** × **think／nothink**。think 下每种模型进行一次完整推理；nothink 下每种模型进行三次独立推理并报告三轮平均值。八轮实验均包含 487 个样本的完整原始输出、独立最终答案、token 统计和统一评分。
 
 ## 最终实验结果
 
-采用 VLMEvalKit CountBenchQA 官方最终答案子串规则：`ans in pred`。`pred` 仅为最终答案文本，不包含思考过程。
+采用 VLMEvalKit CountBenchQA 官方最终答案子串规则：`ans in pred`，其中 `pred` 取自 `answer_text`。
 
 | 模型 | 模式 | 独立轮数 | 正确数／487 | 准确率 | 平均输出 token／题 | 中位数 | 最大值 |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -16,15 +14,10 @@
 | AWQ 4-bit | nothink | 3 | 439.67/487（三轮均值） | **90.28%** | 2.10 | 2 | 3 |
 | 非量化 16-bit（BF16） | think | 1 | 468/487 | **96.10%** | 923.02 | 313 | 39,865 |
 | 非量化 16-bit（BF16） | nothink | 3 | 444.67/487（三轮均值） | **91.31%** | 2.12 | 2 | 3 |
-| 非量化 16-bit（BF16；昇腾 Native FSDP2 + EP=2） | nothink | 3 | 444/487（三轮均值） | **91.17%** | — | — | — |
 
-nothink 的三轮准确率分别独立计算后再等权平均；每轮均为 487 条，因此也等于合并 1,461 条预测后的准确率：AWQ 为 1,319/1,461，BF16 为 1,334/1,461。**没有多数投票、每题取优或 best-of-N。**逐轮结果见 [`results/summary/run_level_summary.csv`](results/summary/run_level_summary.csv)。
+nothink 的三轮分别评分后取算术平均。三轮共 1,461 条预测，AWQ 正确 1,319 条，BF16 正确 1,334 条。逐轮结果见 [`results/summary/run_level_summary.csv`](results/summary/run_level_summary.csv)。
 
-### 昇腾卡验证结果
-
-使用相同的修订版 487 条数据、prompt、采样参数和 `ans in pred` 最终答案评分规则，在 **2 张 64 GB 昇腾 NPU** 上以 **MindSpeed-MM Native FSDP2 + EP=2**、BF16、关闭 thinking 进行三轮独立评测。三轮分别为 446/487（91.58%）、458/487（94.05%）和 428/487（87.89%），三轮平均为 **91.17%（1,332/1,461）**。逐轮数据见 [`results/summary/ascend_fsdp2_ep2_nothink.csv`](results/summary/ascend_fsdp2_ep2_nothink.csv)。这是跨后端验证结果，与 NVIDIA Transformers 结果分开报告，不并入上面的四个最终配置。
-
-输出 token 包含思考和最终答案，是生成工作量与推理链长度指标，不是跨硬件速度指标。nothink 最终表的中位数、分位数和最大值基于三轮合并输出计算。
+输出 token 包含思考和最终答案。nothink 最终表的中位数、分位数和最大值基于三轮合并输出计算。
 
 ## 数据集下载与来源
 
@@ -44,7 +37,7 @@ nothink 的三轮准确率分别独立计算后再等权平均；每轮均为 48
 
 - 共同采样：`temperature=1.0`、`top_p=0.95`、`top_k=20`、`repetition_penalty=1.0`。
 - 随机数：BF16 think 使用 seed 0，BF16 nothink 依次使用 seed 0、1、2，均在每个样本生成前设置；AWQ think 和 nothink 首轮未固定 seed，nothink 另外两轮固定 seed 1、2。
-- 配置差异：AWQ 使用 vLLM 0.32.0、`presence_penalty=1.5`；BF16 使用 Transformers 5.22.1、SDPA、`presence_penalty=0.0`。
+- 推理后端：AWQ 使用 vLLM 0.32.0；BF16 使用 Transformers 5.22.1 和 SDPA。
 - 完整性：八轮均为 487 个唯一样本，样本 ID 跨轮对齐，完整原始输出齐全，最终记录均自然结束。
 
 详细设置见 [`configs/`](configs/) 和 [`docs/EXPERIMENT_PROTOCOL.md`](docs/EXPERIMENT_PROTOCOL.md)。
@@ -56,7 +49,7 @@ python3 scripts/verify_results.py
 bash data/download.sh
 ```
 
-第一条命令无需 GPU，会逐轮复算指标、检查完整原始输出，并重新计算 nothink 三轮平均。重新生成见 [`docs/REPRODUCE.md`](docs/REPRODUCE.md)。仓库不直接包含模型权重、数据 TSV 或图像缓存。
+校验脚本在 CPU 上运行，会逐轮复算指标、检查完整原始输出，并重新计算 nothink 三轮平均。重新生成见 [`docs/REPRODUCE.md`](docs/REPRODUCE.md)。
 
 ## 目录
 

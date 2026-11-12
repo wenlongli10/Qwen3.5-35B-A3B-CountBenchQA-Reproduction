@@ -9,11 +9,11 @@ for pred, ans in zip(predictions, answers):
 accuracy = correct_count / total_count
 ```
 
-Here `pred` is only `answer_text`; reasoning and raw output are never concatenated into it. `ans` is the ground-truth answer converted to a string. This is deliberately substring matching, not exact numeric equality or a normalized alternative metric.
+Here `pred` is `answer_text`, and `ans` is the ground-truth answer converted to a string.
 
 ## Aggregation
 
-Each nothink run is scored independently. The reported nothink accuracy is the arithmetic mean of the three run accuracies. Since each run has 487 samples, this is identical to correct predictions divided by 1,461 pooled predictions. Mean output tokens are computed over the same pooled outputs. There is no majority voting, per-sample best selection, or best-of-N.
+Each nothink run is scored independently. The reported accuracy is the arithmetic mean of the three run accuracies, equivalent to correct predictions divided by 1,461 pooled predictions. Mean output tokens are computed over the same outputs.
 
 Run:
 

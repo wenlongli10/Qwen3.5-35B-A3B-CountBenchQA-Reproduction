@@ -1,35 +1,32 @@
 # Third-party notices
 
-This repository is an evaluation record. It does not grant rights to third-party models, datasets, or frameworks.
-
 ## Qwen3.5-35B-A3B
 
 - Project: Qwen
 - Model: https://huggingface.co/Qwen/Qwen3.5-35B-A3B
 - Archived revision: `59d61f3ce65a6d9863b86d2e96597125219dc754`
-- License: Apache-2.0 according to the model distribution; consult the model card and license at the exact revision.
-- Model weights are not included.
+- License: Apache-2.0, as listed by the model distribution
 
 ## Qwen3.5-35B-A3B-AWQ
 
-- Archived configuration names `QuantTrio/Qwen3.5-35B-A3B-AWQ`.
-- The quantized checkpoint is a third-party derivative; its model card, base-model license, and redistribution terms apply.
-- Model weights are not included.
-- Selected model and preprocessor configuration snapshots are included for reproducibility and retain their upstream terms.
+- Model: https://huggingface.co/QuantTrio/Qwen3.5-35B-A3B-AWQ
+- Base model: Qwen3.5-35B-A3B
+- Selected model and preprocessor configuration snapshots are included for reproducibility.
 
 ## CountBench / CountBenchQA
 
-- Revised TSV download: https://opencompass.openxlab.space/utils/VLMEval/CountBenchQA.tsv
-- CountBench upstream: https://github.com/google-research/google-research/tree/master/countbench
-- CountBench upstream is listed as CC-BY-4.0. Users must also review the provenance and terms of the revised CountBenchQA artifact and any upstream image sources.
-- The revised TSV is not redistributed by this repository; `data/download.sh` retrieves it from the upstream URL and verifies the expected MD5.
+- Revised TSV: https://opencompass.openxlab.space/utils/VLMEval/CountBenchQA.tsv
+- CountBenchQA: https://huggingface.co/datasets/vikhyatk/CountBenchQA
+- CountBench: https://github.com/google-research/google-research/tree/master/countbench
+- CountBench license: CC-BY-4.0
+- `data/download.sh` retrieves the revised TSV and verifies its MD5.
 
 ## VLMEvalKit
 
 - Repository: https://github.com/open-compass/VLMEvalKit
-- CountBenchQA reference implementation: `vlmeval/dataset/image_vqa.py`.
-- The upstream framework and its license apply to upstream code. This repository implements and documents the equivalent short substring scoring rule for its own archived records.
+- CountBenchQA reference implementation: `vlmeval/dataset/image_vqa.py`
+- The archived results use the same final-answer substring scoring rule.
 
-## PyTorch, Transformers, vLLM, and other dependencies
+## Dependencies
 
-All dependencies remain subject to their respective licenses. Exact archived versions are listed in `environment/`.
+PyTorch, Transformers, vLLM, and other dependencies retain their respective licenses. Versions are listed in `environment/`.

@@ -6,7 +6,7 @@
 python3 scripts/verify_results.py
 ```
 
-This needs only the Python standard library and checks all eight archived runs.
+The verifier uses the Python standard library and checks all eight archived runs.
 
 ## Dataset
 
@@ -18,7 +18,7 @@ The script creates `data/CountBenchQA.tsv` and verifies MD5 `fc73c8d4ffa66543144
 
 ## One basic inference script
 
-`scripts/run_countbench.py` handles either backend and either thinking mode. Set `--seed` explicitly for a seeded run, or omit it for an unseeded run. To perform another independent experiment, change `--seed` and use a new `--output` directory; no multi-run orchestration is required.
+`scripts/run_countbench.py` handles either backend and either thinking mode. Set `--seed` explicitly for a seeded run, or omit it for an unseeded run. To perform another independent experiment, change `--seed` and use a new `--output` directory.
 
 ### BF16 / Transformers
 

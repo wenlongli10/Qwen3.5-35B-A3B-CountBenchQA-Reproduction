@@ -17,7 +17,7 @@ Each `results/final/*.jsonl` file has 487 UTF-8 JSON records with unique IDs ali
 | `generated_tokens` | Completion tokens, including reasoning and final answer. |
 | `seconds` | Recorded generation time where available. |
 | `max_new_tokens` | Per-sample output budget. |
-| `seed`, `presence_penalty` | Run-specific seed and penalty. BF16 uses 0/1/2 and 0.0; AWQ uses null/1/2 and 1.5 as documented. |
+| `seed`, `presence_penalty` | Sampling parameters recorded for the run. |
 | `raw_response` | Complete captured AWQ completion JSON; absent for local BF16 generation. |
 
 Summary files under `results/summary/` are derived from the final JSONL files, which are authoritative. `run_level_summary.csv` contains eight runs; `final_summary.csv` contains the four displayed configurations and nothink three-run aggregation.
